@@ -1,0 +1,443 @@
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    transition: 0.5s;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+#container section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    width: 100%;
+}
+
+#container section .color {
+    position: absolute;
+    border-radius: 50%;
+}
+
+#container section .color:nth-child(1) {
+    width: 140rem;
+    height: 140rem;
+    background-color: #055f51;
+    bottom: 0;
+    left: -50%;
+    z-index: 4;
+}
+
+#container section .color:nth-child(2) {
+    width: 50vh;
+    height: 50vh;
+    background-color: #428b80;
+    bottom: 0;
+    right: -5%;
+    z-index: 3;
+}
+
+#container section .color:nth-child(3) {
+    width: 100vw;
+    height: 100vw;
+    background-color: #45cabe;
+    top: -10%;
+    right: 0;
+    z-index: 1;
+}
+
+#container section .color:nth-child(4) {
+    width: 100rem;
+    height: 100rem;
+    background-color: #183632;
+    top: -80%;
+    right: -30%;
+    z-index: 2;
+}
+
+#container .floating-numbers-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+#container .floating-numbers-container .floating-number {
+    position: absolute;
+    z-index: 5;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    animation-name: moveUpDown;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+
+#container .floating-numbers-container .floating-number:nth-child(1) {
+    font-size: 15rem;
+    color: #183632;
+    top: 60%;
+    left: 10%;
+}
+
+#container .floating-numbers-container .floating-number:nth-child(2) {
+    font-size: 15rem;
+    color: #428b80;
+    top: 15%;
+    right: 15%;
+}
+
+#container .floating-numbers-container .floating-number:nth-child(3) {
+    font-size: 12rem;
+    color: #001313;
+    bottom: 10%;
+    right: 25%;
+}
+
+#container .floating-numbers-container .floating-number:nth-child(4) {
+    font-size: 8rem;
+    color: #45cabe;
+    top: 5%;
+    left: 5%;
+}
+
+#container .floating-numbers-container .floating-number:nth-child(5) {
+    font-size: 16rem;
+    color: #428b80;
+    top: 25%;
+    left: 20%;
+}
+
+#calculator {
+    min-width: 30rem;
+    width: 30%;
+    min-height: 40rem;
+    height: 55rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 5;
+
+    border: 1px solid rgba(100, 100, 100, 0.15);
+    border-radius: 3rem;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+#calculator.dark-theme {
+    border: 1px solid #010505;
+}
+
+#calculator .display {
+    position: relative;
+    padding: 4rem;
+    border-radius: 3rem 3rem 0 0;
+
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    flex-direction: column;
+
+    width: 100%;
+    height: 45%;
+}
+
+#calculator.light-theme .display {
+    background-color: #fff;
+}
+
+#calculator.dark-theme .display {
+    background-color: #010505;
+}
+
+#calculator.dark-theme .display .select-theme {
+    box-shadow: 1px 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+#calculator .display .select-theme {
+    width: 5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 2rem;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator .display .select-theme input[type="radio"] {
+    appearance: none;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    border-radius: 2rem 0 0 2rem;
+    cursor: pointer;
+    background: #45cabe
+                url(./images/sun.svg);
+    background-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    z-index: 3;
+}
+
+#calculator .display .select-theme input[type="radio"] + input[type="radio"] {
+    border-radius: 0 2rem 2rem 0;
+    background: #000807
+                url(./images/moon.ico);
+    background-size: 1.2rem;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
+
+#calculator .display input[type="text"] {
+    border: none;
+
+    width: 100%;
+
+    text-align: end;
+    font-size: 2.3rem;
+    color: #45cabe;
+}
+
+#calculator.light-theme .display input[type="text"] {
+    background-color: #fff;
+}
+
+#calculator.dark-theme .display input[type="text"] {
+    background-color: #010505;
+}
+
+#calculator.light-theme .display #area-result {
+    font-size: 7rem;
+    color: #000;
+}
+
+#calculator.dark-theme .display #area-result {
+    font-size: 7rem;
+    color: #fff;
+}
+
+#calculator .keyboard {
+    width: 100%;
+    height: 55%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "c c plusminus delete"
+    "seven eight nine div"
+    "four five six mult"
+    "one two three minus"
+    "dot zero equal plus";
+
+    border-radius: 0 0 3rem 3rem;
+    position: relative;
+}
+
+#calculator.light-theme .keyboard {
+    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
+}
+
+#calculator.dark-theme .keyboard {
+    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(to bottom right, #010505, #001313);
+}
+
+#calculator .keyboard button {
+    border: .5px solid rgba(200, 200, 200, 0.2);
+    background-color: #f5f5f5;
+    font-size: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculator.dark-theme .keyboard button {
+    background: transparent;
+    border: .25px solid #010505;
+    color: #fff;
+    cursor: pointer;
+}
+
+#calculator .keyboard #C {
+    grid-area: c;
+}
+
+#calculator .keyboard #plusminus {
+    grid-area: plusminus;
+}
+
+#calculator .keyboard #open-parenthese {
+    grid-area: par-open;
+}
+
+#calculator .keyboard #close-parenthese {
+    grid-area: par-close;
+}
+
+#calculator .keyboard #delete {
+    grid-area: delete;
+}
+
+#calculator .keyboard #seven {
+    grid-area: seven;
+}
+
+#calculator .keyboard #eight {
+    grid-area: eight;
+}
+
+#calculator .keyboard #nine {
+    grid-area: nine;
+}
+
+#calculator .keyboard button#divisor {
+    grid-area: div;
+    background: rgba(69, 202, 190, 0.3);
+}
+
+#calculator.dark-theme .keyboard button#divisor {
+    background-color: #055f51;
+}
+
+#calculator .keyboard #four {
+    grid-area: four;
+}
+
+#calculator .keyboard #five {
+    grid-area: five;
+}
+
+#calculator .keyboard #six {
+    grid-area: six;
+}
+
+#calculator .keyboard button#multiply {
+    grid-area: mult;
+    background: rgba(69, 202, 190, 0.3);
+}
+
+#calculator.dark-theme .keyboard button#multiply {
+    background-color: #055f51;
+}
+
+#calculator .keyboard #one {
+    grid-area: one;
+}
+
+#calculator .keyboard #two {
+    grid-area: two;
+}
+
+#calculator .keyboard #three {
+    grid-area: three;
+}
+
+#calculator .keyboard button#minus {
+    grid-area: minus;
+    background: rgba(69, 202, 190, 0.3);
+}
+
+#calculator.dark-theme .keyboard button#minus {
+    background-color: #055f51;
+}
+
+#calculator .keyboard #dot {
+    grid-area: dot;
+    border-radius: 0 0 0 3rem;
+}
+
+#calculator .keyboard #zero {
+    grid-area: zero;
+}
+
+#calculator .keyboard button#equal {
+    grid-area: equal;
+    background: #45cabe linear-gradient(to top left, transparent, rgba(0,0,0,0.2));
+    color: white;
+}
+
+#calculator.dark-theme .keyboard button#equal {
+    background: #45cabe linear-gradient(to top left, transparent, rgba(0,0,0,0.5));
+}
+
+#calculator .keyboard button#plus {
+    grid-area: plus;
+    background: rgba(69, 202, 190, 0.3);
+    border-radius: 0 0 3rem 0;
+}
+
+#calculator.dark-theme .keyboard button#plus {
+    background-color: #055f51;
+}
+
+#calculator .keyboard img {
+    height: 2.6rem;
+}
+
+#calculator.dark-theme .keyboard img {
+    filter: invert(100%);
+}
+
+#container .credits {
+    position: fixed;
+    z-index: 5;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+#container .credits a {
+    text-decoration: none;
+}
+
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(-2.5rem);
+    }
+    50% {
+        transform: translateY(2.5rem);
+    }
+}

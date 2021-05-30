@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculator</title>
+
+    <link rel="stylesheet" href="./public/style.css">
+</head>
+<body>
+    <div id="container">
+        <section>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </section>
+        <section class="floating-numbers-container">
+            <div class="floating-number" style="--i:0;">&#43;</div>
+            <div class="floating-number" style="--i:1;">2</div>
+            <div class="floating-number" style="--i:2;">&#247;</div>
+            <div class="floating-number" style="--i:3.5;">9</div>
+            <div class="floating-number" style="--i:3;">0</div>
+        </section>
+        <div id="calculator" class="light-theme">
+            <div class="display">
+                <div class="select-theme">
+                    <input type="radio" name="selector-theme" id="light-theme" onclick="selectTheme(event)">
+                    <input type="radio" name="selector-theme" id="dark-theme" onclick="selectTheme(event)">
+                </div>
+                
+                <input type="text" id="area-result" readonly>
+                <input type="text" id="area-equation" readonly>
+            </div>
+            <div class="keyboard">
+                <button type="button" onclick="clearAll()" class="key" id="C">C</button>
+                <button type="button" onclick="invertValue()" class="key" id="plusminus">&#177;</button>
+                <button type="button" onclick="clean()" class="key" id="delete">
+                    <img src="./public/images/delete.svg" alt="delete">
+                </button>
+                <button type="button" onclick="insertValue(event)" data-value="7" class="key" id="seven">7</button>
+                <button type="button" onclick="insertValue(event)" data-value="8" class="key" id="eight">8</button>
+                <button type="button" onclick="insertValue(event)" data-value="9" class="key" id="nine">9</button>
+                <button type="button" onclick="insertValue(event)" data-value="/" id="divisor">&#247;</button>
+                <button type="button" onclick="insertValue(event)" data-value="4" class="key" id="four">4</button>
+                <button type="button" onclick="insertValue(event)" data-value="5" class="key" id="five">5</button>
+                <button type="button" onclick="insertValue(event)" data-value="6" class="key" id="six">6</button>
+                <button type="button" onclick="insertValue(event)" data-value="*" id="multiply">&#215;</button>
+                <button type="button" onclick="insertValue(event)" data-value="1" class="key" id="one">1</button>
+                <button type="button" onclick="insertValue(event)" data-value="2" class="key" id="two">2</button>
+                <button type="button" onclick="insertValue(event)" data-value="3" class="key" id="three">3</button>
+                <button type="button" onclick="insertValue(event)" data-value="-" id="minus">&#8722;</button>
+                <button type="button" onclick="insertValue(event)" data-value="&#46;" class="key" id="dot">&#46;</button>
+                <button type="button" onclick="insertValue(event)" data-value="0" class="key" id="zero">0</button>
+                <button type="button" onclick="calcResult()" id="equal">&#61;</button>
+                <button type="button" onclick="insertValue(event)" data-value="&#43;" id="plus">&#43;</button>
+            </div>
+        </div>
+
+        <div class="credits">Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> and <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>  from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </div>
+
+    <script src="./public/script.js"></script>
+</body>
+</html>
