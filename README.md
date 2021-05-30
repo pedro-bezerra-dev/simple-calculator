@@ -8,6 +8,8 @@ A simple calculator built with HTML, CSS and JavaScript.
 
 ## Demonstration
 
+![demo-gif](./public/images/demo.gif)
+
 ---
 
 Created by [Pedro Henrique](https://github.com/pedro-henrique-sb)
